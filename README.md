@@ -2,7 +2,7 @@ mbentley/bind9
 ==============
 
 docker image for bind9
-based off of stackbrew/debian:jessie
+based off of debian:jessie
 
 To pull this image:
 `docker pull mbentley/bind9`
