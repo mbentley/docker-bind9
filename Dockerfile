@@ -9,4 +9,4 @@ RUN apt-get update &&\
 COPY named.conf* /etc/bind/
 
 EXPOSE 53 53/udp
-CMD ["/usr/sbin/named","-c","/etc/bind/named.conf","-f","-u","bind"]
+CMD ["/usr/sbin/named","-c","/etc/bind/named.conf","-f","-u","bind","-g"]
