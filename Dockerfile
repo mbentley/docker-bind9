@@ -1,7 +1,7 @@
 FROM alpine:latest
 MAINTAINER Matt Bentley <mbentley@mbentley.net>
 
-RUN (apk --update add bind && rm -rf /var/cache/apk/*)
+RUN apk --no-cache add bind
 
 RUN ln -s /etc/bind/named.conf.recursive /etc/bind/named.conf
 
