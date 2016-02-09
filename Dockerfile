@@ -1,12 +1,9 @@
-FROM debian:jessie
+FROM alpine:latest
 MAINTAINER Matt Bentley <mbentley@mbentley.net>
 
-RUN apt-get update &&\
-  DEBIAN_FRONTEND=noninteractive apt-get install -y bind9 &&\
-  mkdir /var/log/bind /var/run/named &&\
-  chown -R bind:bind /var/log/bind /var/run/named
+RUN (apk --update add bind && rm -rf /var/cache/apk/*)
 
-COPY named.conf* /etc/bind/
+#RUN ln -s /etc/bind/named.conf.recursive /etc/bind/named.conf
 
 EXPOSE 53 53/udp
-CMD ["/usr/sbin/named","-c","/etc/bind/named.conf","-f","-u","bind","-g"]
+CMD ["/usr/sbin/named","-c","/etc/bind/named.conf.recursive","-f","-u","named","-g"]
