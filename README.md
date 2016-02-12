@@ -13,4 +13,4 @@ Example usage, binding to all IPs on the docker host:
 Example usage, binding to a specific IP on the docker host:
 `docker run -d -p <ip-address>:53:53 -p <ip-address>:53:53/udp mbentley/bind9`
 
-By default, this image is configured to only answer queries from 127.0.0.1 which will only work out of the box if you're using `--net=host`.  Copy and edit one of the files in `/etc/bind` to customize the server for your needs.
+*Note:* By default, this image is configured to recursively answer queries from any IP.  Copy and edit one of the files in `/etc/bind` to customize the server for your needs.
