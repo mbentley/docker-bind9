@@ -2,7 +2,11 @@ FROM alpine:latest
 MAINTAINER Matt Bentley <mbentley@mbentley.net>
 
 RUN apk --no-cache add bind &&\
-  rm /var/bind/pri/127.zone /var/bind/pri/localhost.zone
+  rm /var/bind/pri/127.zone /var/bind/pri/localhost.zone &&\
+  deluser named &&\
+  addgroup -g 505 named &&\
+  adduser -h /etc/bind -D -u 505 -g named -G named -s /sbin/nologin named &&\
+  chgrp named /etc/bind /var/bind /var/run/named /var/bind/dyn /var/bind/pri /var/bind/sec
 
 COPY *.zone /var/bind/pri/
 
