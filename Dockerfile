@@ -2,7 +2,7 @@ FROM alpine:latest
 MAINTAINER Matt Bentley <mbentley@mbentley.net>
 
 # install bind; create custom uid/gid for the named user and set perms
-RUN apk --no-cache add bind &&\
+RUN apk --no-cache add bind bind-tools &&\
   deluser named &&\
   addgroup -g 505 named &&\
   adduser -h /etc/bind -D -u 505 -g named -G named -s /sbin/nologin named &&\
