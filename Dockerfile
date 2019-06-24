@@ -19,4 +19,4 @@ COPY entrypoint.sh /entrypoint.sh
 
 EXPOSE 53 53/udp
 ENTRYPOINT ["/entrypoint.sh"]
-CMD ["/usr/sbin/named","-c","/etc/bind/named.conf","-f","-u","named","-g"]
+CMD ["/usr/sbin/named","-c","/etc/bind/named.conf","-f","-u","named","-g","-4"]
