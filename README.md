@@ -17,4 +17,4 @@ Example usage, binding to a specific IP on the docker host:
 Options:
 
 * `ENABLE_CONTROL_CHANNEL` (default: false) - Set to `true` to enable the control channel, allowing the use of `rndc` to control bind
-  * Note: If `rndc.key` or `rndc.conf` is available via volume, it will still be used by bind.
+    * Note: If `rndc.key` or `rndc.conf` is available via volume, it will still be used by bind.
